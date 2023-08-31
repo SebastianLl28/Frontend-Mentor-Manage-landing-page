@@ -1,0 +1,16 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/typografy' as *;
+@forward '../abstracts/typografy';
+@forward '../abstracts/colors';
+
+@mixin paragraph(){
+  color: $secondary-300;
+  text-justify: auto;
+  line-height: 1.5;
+}
+
+@mixin subtitle {
+  color: $secondary;
+  font-size: 2.5em;
+  font-weight: $weight-2;
+}

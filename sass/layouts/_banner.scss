@@ -1,0 +1,49 @@
+@use '../abstracts/mixin' as *;
+@use '../components/buttons' as *;
+@use '../components/paragraph' as *;
+@use '../abstracts/media-query' as *;
+
+.banner {
+  background-color: $primary;
+  padding: 5rem 0;
+  background-image: url('../../images/bg-simplify-section-desktop.svg');
+  background-repeat: no-repeat;
+  background-position: center right;
+
+  &__container {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    
+  }
+
+  &__title {
+    @include subtitle;
+    color: $white;
+    max-width: 15em;
+  }
+
+  &__button {
+    @include button_cto;
+    background-color: $white;
+    color: $primary;
+    border: none;
+  }
+
+  @include screen-edit("854px") {
+    background-image: url('../../images/bg-simplify-section-mobile.svg');
+    background-position: left center;
+
+    &__container {
+      flex-direction: column;
+      gap: 2em;
+    }
+
+    &__title {
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+}

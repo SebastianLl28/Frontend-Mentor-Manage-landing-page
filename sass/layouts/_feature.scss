@@ -1,0 +1,109 @@
+@use '../abstracts/mixin' as *;
+@use '../components/paragraph' as *;
+@use '../abstracts/media-query' as *;
+
+.feature {
+  @include container;
+  padding-block: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  position: relative;
+
+  &__title {
+    @include subtitle;
+    margin-bottom: .5em;
+    max-width: 16em;
+  }
+  
+  &__paragraph {
+    @include paragraph;
+    max-width: 22em;
+  }
+
+  &__bg {
+    position: absolute;
+    width: 40rem;
+    height: 40rem;
+    bottom: -25rem;
+    left: -35rem;
+    background-image: url('../../images/bg-tablet-pattern.svg');
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+
+    @include screen-edit("1300px") {
+      bottom: -25rem;
+      left: -25rem;
+    }
+  }
+
+  @include screen-tablet {
+    gap: 4rem;
+    grid-template-columns: 1fr;
+
+    &__title {
+      max-width: 100%;
+      text-align: center;
+    }
+
+    &__paragraph {
+      text-align: center;
+      max-width: 100%;
+    }
+  }
+}
+
+.details {
+  &__header {
+    display: flex;
+    position: relative;
+  }
+
+  &__element {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    'number title' '. text';
+    column-gap: 1.5em;
+    row-gap: .6em;
+
+    @include screen-tablet {
+      grid-template-areas: 
+      'number title' 'text text';
+    }
+  }
+
+  &__number {
+    grid-area: number;
+    align-self: center;
+    text-align: center;
+    padding: .4em 1.4em;
+    background-color: $primary;
+    color: $white;
+    border-radius: 1em;
+  }
+
+  &__element:nth-child(-n + 2) {
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    color: $secondary;
+    font-weight: $weight-2;
+    grid-area: title;
+    align-self: center;
+    font-size: 1.2em
+  }
+
+  &__paragraph {
+    @include paragraph;
+    grid-area: text;
+  }
+}
+
+.swiper-pagination-bullet {
+  background-color: $primary !important; 
+}

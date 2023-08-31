@@ -1,0 +1,91 @@
+@use '../abstracts/mixin' as *;
+@use '../components/buttons' as *;
+@use '../abstracts/media-query' as *;
+
+.header{
+  width: 100%;
+  padding: 2rem 0;
+  position: relative;
+
+  &__container{
+    @include container;
+    @include flex-init($justify: space-between);
+  }
+
+  &__logo {
+    width: 10rem;
+  }
+
+  &__cto {
+    @include button_cto;
+  }
+
+  &__bar {
+    display: none;
+    font-size: 1.5em;
+    color: $secondary;
+  }
+
+  @include screen-edit('900px') {
+    &__button {
+      display: none;
+    }
+
+    &__bar {
+      display: block;
+    }
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    gap: 2em;
+  }
+
+  &__link {
+    color: $secondary;
+    font-weight: $weight-1;
+    font-size: .9em;
+    &:hover {
+      opacity: .8;
+    }
+  }
+
+  @include screen-edit('900px') {
+    & {
+      display: none;
+  
+    }
+
+    &--active {
+      display: block;
+      background: rgb(0,0,0);
+      background: linear-gradient(0deg, rgba(0,0,0,0.9457983877144608) 0%, rgba(0,0,0,0.5312325613839286) 62%, rgba(0,0,0,0) 100%);
+      height: 100vh;
+      position: absolute;
+      top: 100%;
+      left: 0rem;
+      right: 0rem;
+      z-index: 1;
+      padding: 2rem;
+      font-size: 1.2em;
+      font-weight: $weight-2;
+
+      & .nav__list {
+        gap: 1.2em;
+        margin: auto;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+
+        & > li {
+          align-self: center;
+        }
+      }
+    }
+  }
+}

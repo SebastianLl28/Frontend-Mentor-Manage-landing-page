@@ -1,0 +1,63 @@
+@use '../components/paragraph' as *;
+@use '../components/buttons' as *;
+
+.testimony {
+  padding-block: 5rem;
+  padding-bottom: 15rem;
+
+  &__element {
+    width: min(35rem, 100%);
+    margin: auto;
+    background-color: #fafafa;
+    text-align: center;
+    padding: 2em 2.2em;
+    position: relative;
+    display: grid;
+    gap: 1em;
+    justify-items: center;
+    padding-top: 4em;
+  }
+
+  &__title {
+    @include subtitle;
+    text-align: center;
+    padding: 1.2em 0;
+  }
+
+  &__image {
+    width: 4.5rem;
+    position: absolute;
+    top: -2em;
+  }
+
+  &__paragraph {
+    @include paragraph;
+    line-height: 1.7;
+  }
+
+  &__name {
+    font-size: 1.3em;
+    color: $secondary;
+    font-weight: $weight-2;
+    letter-spacing: -1px;
+  }
+
+  &__button {
+    @include button_cto;
+    margin: auto;
+  }
+
+  &__container {
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0; 
+    gap: 3rem; 
+  }
+}
+
+.swiper {
+  max-width: 1920px;
+
+}

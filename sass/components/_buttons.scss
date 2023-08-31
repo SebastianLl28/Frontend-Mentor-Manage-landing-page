@@ -1,0 +1,20 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/typografy' as *;
+@forward '../abstracts/colors';
+@forward '../abstracts/typografy';
+
+@mixin button_cto {
+  background-color: $primary;
+  padding: .9em 2em;
+  border-radius: 2.2rem;
+  color: $white;
+  font-weight: $weight-1;
+  transition: opacity .3s;
+  border: 1px solid darken($primary, 1%);
+  box-shadow: 0 15px 30px -10px $primary;
+  cursor: pointer;
+
+  &:hover {
+    opacity: .8;
+  }
+}

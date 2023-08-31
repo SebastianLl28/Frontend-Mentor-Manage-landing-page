@@ -1,0 +1,17 @@
+@mixin screen-1500 {
+  @media screen and (max-width: 1500px) {
+    @content;
+  }  
+}
+
+@mixin screen-tablet {
+  @media screen and (max-width: 1000px) {
+    @content;
+  }  
+}
+
+@mixin screen-edit ($screen-size) {
+  @media screen and (max-width: #{$screen-size}) {
+    @content;
+  }  
+}

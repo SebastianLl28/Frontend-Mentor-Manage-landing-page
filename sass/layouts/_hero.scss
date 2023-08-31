@@ -1,0 +1,74 @@
+@use '../abstracts/mixin' as *;
+@use '../components/buttons' as *;
+@use '../components/paragraph' as *;
+@use '../abstracts/media-query' as *;
+
+.hero {
+  @include container;
+  padding-block: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  &__content {
+    align-self: center;
+
+    & *:nth-child(n+2){
+      margin-top: 1.8em;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    padding: 0;
+  }
+
+  &__title {
+    font-size: 3.2em;
+    color: $secondary;
+    font-weight: $weight-2;
+
+    @include screen-edit("500px") {
+      font-size: 2.3em;
+    }
+  }
+
+  &__paragraph {
+    @include paragraph;
+    max-width: 25em;
+  }
+
+  &__cto {
+    @include button_cto;
+  }
+
+  @include screen-tablet {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'image' 'text';
+    padding-block: 3rem;
+
+    &__image {
+      grid-area: image;
+      display: grid;
+      justify-content: center;
+      &>img {
+        width: min(40rem, 100%);
+      }
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &__paragraph {
+      text-align: center;
+      max-width: min(40rem ,100%);
+      margin: auto;
+    }
+
+    &__cto {
+      margin: auto;
+    }
+  }
+}
+
